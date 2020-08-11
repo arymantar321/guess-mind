@@ -5,8 +5,6 @@ import minifyCSS from "gulp-csso";
 import del from "del";
 import bro from "gulp-browserify";
 import babel from "babelify";
-import browserify from "browserify";
-import source from "vinyl-source-stream";
 
 sass.compiler = require("node-sass");
 
@@ -31,6 +29,7 @@ const styles = () =>
     .pipe(sass())
     .pipe(
       autoprefixer({
+        overrideBrowserslist: ["last 2 versions"],
         cascade: false,
       })
     )
